@@ -1,76 +1,49 @@
-<script setup>
-// import TheWelcome from '../components/TheWelcome.vue'
+<script>
+export default {
+  data(){
+    return{
+descrition_text : "Welcome to Gessource, an application wich help player to manage their ressources.\n" 
++"As player you can manage your money, Pv, Mana, number of spell, etc.."
++"As GM you can use it in order to manage your npc, with their life. Note your player Pv and more"
++ "If you new click on New game to start\n " 
+}
+  }
+}
 </script>
 
 <template>
-<div>
-<nav class="navbar navbar-expand-lg bg-body-tertiary col-6 m-auto">
-  <div class="container-fluid">
-  <router-link to="/">Home</router-link>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link " aria-current="page"><RouterLink to="/newgame" >New game</RouterLink></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " aria-current="page"><RouterLink to="/loadgame" >Load game</RouterLink></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " aria-current="page"><RouterLink to="/settings" >Settings</RouterLink></a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-      <router-view/>
+  <div class="d-flex flex-column ">
+    <img src="../img/rpg_group.jpg" alt="Représentation d'un groupe d'aventurier" class="col-6 m-auto mt-2"/>
+
+    <!-- <p class="classroom mt-3">This application is a rpg tools. Its goal is to help 
+      to manage yours ressources when you play an Rpg Games like D&D <br/>
+      As player you can manage your money, Pv, number of spell by level, the number of potion, etc... <br/>
+      As GM you can manage your pnc, add their life during a fight. Note your players pv, and more.</p> -->
+      <p class="classroom mt-3 col-8 m-auto">{{descrition_text}}</p>
+    
   </div>
 </template>
-<style scope>
-/* nav{
-  display: grid;
-  grid-template-columns: (4);
-} */
-.one{
-  grid-column : 1;
-  grid-row : 1
-}
 
-.two{
-  grid-column : 2;
-  grid-row : 1 
+<style lang="scss">
+ img{
+  width: 50%;
+  
 }
-
-.three{
-  grid-column : 1;
-  grid-row : 2 
-}
-.four{
-  grid-column : 2;
-  grid-row : 2 
-}
-a {
-  color: rgb(255, 255, 255); 
-  font-size: 16px;
-  line-height: 16px;
-  padding: 6px;
-  border-radius: 10px;
-  font-family: Georgia, serif;
-  font-weight: normal;
-  text-decoration: none;
-  font-style: normal;
-  font-variant: normal;
-  text-transform: none;
-  background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%);
-  box-shadow: rgba(0, 0, 0, 0) -100px -100px 0px 0px;
-  border: 2px solid rgb(28, 110, 164);
-  margin: 5px;
+/*@media (min-width: 1024px) {
+  .about {
+    min-height: 100vh;
+ 
+    
+    align-items: center;
   }
-/* a:hover {
-background: #1C6EA4; }
-a:active {
-background: #144E75; } */
-main{
-  margin-top: 100px ;
-}
+} */
+$bg-classroom: #232323;
+$text-color: #f0ed36;
 
+.classroom {
+  background: $bg-classroom;
+  color: $text-color;
+  text-align: center;
+  font-size: 18px;
+}
 </style>

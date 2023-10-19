@@ -1,9 +1,8 @@
 <script setup>
-// import TheWelcome from '../components/TheWelcome.vue'
+import H2Component from '../components/H2Component.vue'
+const title = "Charger une partie"
 </script>
 
 <template>
-  <div>
-    <h2>Charger une partie</h2>
-  </div>
+  <h-2-component :title="title"/>
 </template>
