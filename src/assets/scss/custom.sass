@@ -1,5 +1,8 @@
 $font-stack: Helvetica, sans-serif
-$primary-color: #333
+$primary: #547063
+$secondary: #b87633
+$tertianary-color: #5686a3
+$quaternary-color: #547063
 $tes-variable: 300px
 
 @mixin custom-button
@@ -14,17 +17,21 @@ $tes-variable: 300px
     font-style: normal
     font-variant: normal
     text-transform: none
-    background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%)
+    // background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%)
+    background-image: linear-gradient(to right, $primary 0%, rgb(20, 78, 117) 50%, $tertianary-color 100%)
     box-shadow: rgba(0, 0, 0, 0) -100px -100px 0px 0px
     border: 2px solid rgb(28, 110, 164)
     margin: 5px
 
 body
     font: 100% $font-stack
-    color: $primary-color
+    color: #333
 
 .header
     margin: $tes-variable
 
 li
     list-style-type: none
+
+.test
+    @include custom-button
