@@ -1,16 +1,16 @@
 <template>
     <div class="d-flex">
         <div class="d-flex flex-row">
-            <p class="align-middle">{{ ressource_name }}</p>
-            <p class="align-middle">{{ ressource_value }}</p>
+            <p class="align-middle">{{ ressource.name }}</p>
+            <p class="align-middle">{{ ressource.actuelle }}/{{ ressource.max }}</p>
         </div>
-        <input/>
+        <input v-model="input_value" placeholder="Entrer une valeur sans le signe"/>
         <div class="d-flex flex-column">
-            <button >+</button>
-            <button >-</button>
+            <button @click="add">+</button>
+            <button @click="minus">-</button>
         </div>
         <button>set</button>
-        <button>reset</button>
+        <button @click="reset">reset</button>
         <button>delete</button>
     </div> 
 </template>
@@ -19,10 +19,36 @@
 export default {
     data(){
         return{
-            ressource_name:"Pv",
-            ressource_value:"145/145"
+            ressource:{
+                name:"Pv",
+                max:140,
+                min:-10,
+                default:140,
+                actuelle:120
+            },
+            input_value:0
         }
+    },
+methods: {
+    add(){
+        this.ressource.actuelle=parseInt(this.ressource.actuelle ) + parseInt( this.input_value);
+        this.input_value = 0;
+        if (this.ressource.actuelle > this.ressource.max){ 
+            this.ressource.actuelle = this.ressource.max;
+        }
+    },
+
+    minus(){
+        this.ressource.actuelle=parseInt(this.ressource.actuelle ) - parseInt( this.input_value);
+        this.input_value = 0;
+        if (this.ressource.actuelle < this.ressource.min){ 
+            this.ressource.actuelle = this.ressource.min;
+        }
+    },
+    reset(){
+        this.ressource.actuelle = this.ressource.default
     }
+}
 
 }
 </script>
