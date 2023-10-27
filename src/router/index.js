@@ -3,6 +3,7 @@ import HomeView from '@/views/HomeView.vue'
 import NewGameView from '@/views/NewGameView.vue'
 import LoadGameView from '@/views/LoadGameView.vue'
 import GameView from '@/views/GameView.vue'
+import RessourceFormView from '@/views/RessourceFormView.vue'
 
 
 const router = createRouter({
@@ -35,6 +36,11 @@ const router = createRouter({
       path:'/game/:name',
       name:'game',
       component:GameView
+    },
+    {
+      path:'/addressource/:game',
+      name:'addressource',
+      component:RessourceFormView
     }
   ]
 })
