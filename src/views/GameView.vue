@@ -10,7 +10,11 @@ import RessourceItem from '../components/RessourceItem.vue'
             <RessourceItem/>
         </div>    
         <div class="d-flex flex-column">
-            <img class="m-auto" src="../assets/plus.svg" alt="plus" id="icon-plus"/>
+            <RouterLink :to="{ name:'addressource',params:{game:title  }}">
+            
+                <img class="m-auto" src="../assets/plus.svg"
+                     alt="plus" id="icon-plus"/>
+            </RouterLink>
         </div>
     </div>
 </template>
@@ -19,7 +23,7 @@ import RessourceItem from '../components/RessourceItem.vue'
 export default {
     data(){
         return {
-            title : "Test"
+            title : "test"
         }
     }
 }
