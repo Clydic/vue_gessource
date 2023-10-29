@@ -1,8 +1,6 @@
 <script setup>
 import H2Component from '../components/H2Component.vue';
 import RessourceComponent from '../components/RessourceComponent.vue';
-import axios from 'axios';
-const title = 'test'
 </script>
 
 <template>
@@ -18,9 +16,20 @@ const title = 'test'
     </div>
 </template>
 <script>
+import RessourceDataService from '../service/RessourceDataService';
 export default {
     data() {
         return{
+        title : 'test',
+            ressource_to_create:{
+                ressource:"",
+                values:{
+                    vmin:0,
+                    vmax:0,
+                    vdefaut:0,
+                    vact:0
+                }
+            },
             list_of_placeholder : [
                     {'index':0, 'description':'Name of Game', 'value':""},
                     {'index':1, 'description':'Minimum Value', 'value':0},
@@ -31,14 +40,18 @@ export default {
     },
     methods:{
        addRessource(){
-axios.post('http://localhost:4000/games/test',{ressource:this.list_of_placeholder[0].value,
-            values:{vmin:this.list_of_placeholder[1].value,
-            vmax:this.list_of_placeholder[2].value,
-            vdefaut:this.list_of_placeholder[3].value,
-            vact:this.list_of_placeholder[3].value,
+        console.log(`titre:${this.title}`)
+RessourceDataService.create(this.title,{
+            ressource:this.list_of_placeholder[0].value,
+            values:{
+                vmin:this.list_of_placeholder[1].value,
+                vmax:this.list_of_placeholder[2].value,
+                vdefaut:this.list_of_placeholder[3].value,
+                vact:this.list_of_placeholder[3].value,
             }
-}).then((response) =>console.log(response))
-.catch(error=>console.log(error));
+        })
+        .then((response) =>console.log(response))
+        .catch(error=>console.log(error));
        } 
     }
 }

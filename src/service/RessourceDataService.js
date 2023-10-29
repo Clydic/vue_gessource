@@ -1,5 +1,5 @@
 import http from "../http-common";
-const path = ""
+const path = "/games"
 class RessourceDataService {
     getAll() {
         return http.get(path);
@@ -7,8 +7,8 @@ class RessourceDataService {
     get(id) {
         return http.get(`${path}/${id}`);
     }
-    create(data) {
-        return http.post(path + "/", data);
+    create(game,data) {
+        return http.post(`${path}/${game}`, data);
     }
     update(id, data) {
         return http.put(`${path}/${id}`, data);
