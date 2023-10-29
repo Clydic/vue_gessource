@@ -1,5 +1,6 @@
 <script setup>
   import H2Component from '../components/H2Component.vue'
+  import RessourceDataService from '../service/RessourceDataService';
   //import ListGame from '../mock/listgame-mock'
   var errors=[];
 
