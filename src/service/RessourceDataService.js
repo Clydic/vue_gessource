@@ -1,26 +1,20 @@
 import http from "../http-common";
 const path = "/games"
 class RessourceDataService {
-    getAll() {
-        return http.get(path);
+    getAll(game) {
+        return http.get(`${path}/${game}/values`);
     }
-    get(id) {
-        return http.get(`${path}/${id}`);
+    get(game) {
+        return http.get(`${path}/${game}`);
     }
     create(game,data) {
         return http.post(`${path}/${game}`, data);
     }
-    update(id, data) {
-        return http.put(`${path}/${id}`, data);
+    update(game,ressource, data) {
+        return http.put(`${path}/${game}/${ressource}`, data);
     }
-    delete(id) {
-        return http.delete(`${path}/${id}`);
-    }
-    deleteAll() {
-        return http.delete(path + "/");
-    }
-    findByName(name_arme) {
-        return http.get(`${path}/?name=${name_arme}`);
+    delete(game, ressource) {
+        return http.delete(`${path}/${game}/${ressource}`);
     }
 }
 export default new RessourceDataService();
